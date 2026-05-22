@@ -1,41 +1,40 @@
-# 📦 CRUD Clientes e Pedidos
+# CRUD Clientes e Pedidos
 
 Aplicação Java com CRUD completo para as entidades **Cliente** e **Pedido**, integração com banco de dados **MySQL** via **JPA/Hibernate**, e consumo da **API pública ViaCEP** para preenchimento automático de endereços.
 
 ---
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```
 crud-clientes-pedidos/
 ├── src/main/java/com/crud/
-│   ├── Main.java                          # Ponto de entrada (menu principal)
+│   ├── Main.java                          
 │   ├── config/
-│   │   └── HibernateConfig.java          # Configuração JPA + carrega .env
+│   │   └── HibernateConfig.java          
 │   ├── model/
-│   │   ├── Cliente.java                  # Entidade Cliente (@Entity)
-│   │   └── Pedido.java                   # Entidade Pedido (@Entity)
+│   │   ├── Cliente.java                  
+│   │   └── Pedido.java                   
 │   ├── repository/
-│   │   ├── ClienteRepository.java        # CRUD no banco para Cliente
-│   │   └── PedidoRepository.java         # CRUD no banco para Pedido
+│   │   ├── ClienteRepository.java        
+│   │   └── PedidoRepository.java         
 │   ├── service/
-│   │   ├── ClienteService.java           # Regras de negócio de Cliente
-│   │   ├── PedidoService.java            # Regras de negócio de Pedido
-│   │   └── ViaCepService.java            # Consumo da API ViaCEP
+│   │   ├── ClienteService.java           
+│   │   ├── PedidoService.java            
+│   │   └── ViaCepService.java            
 │   └── ui/
-│       ├── MenuCliente.java              # Menu interativo de Clientes
-│       └── MenuPedido.java               # Menu interativo de Pedidos
+│       ├── MenuCliente.java              
+│       └── MenuPedido.java              
 ├── src/main/resources/
-│   └── META-INF/persistence.xml         # Configuração JPA/Hibernate
-├── .env                                  # Variáveis de ambiente (NÃO commitado)
-├── .env.example                          # Modelo do .env
+│   └── META-INF/persistence.xml                                           
+├── .env.example                          
 ├── .gitignore
-└── pom.xml                               # Dependências Maven
+└── pom.xml                               
 ```
 
 ---
 
-## ✅ Funcionalidades
+## Funcionalidades
 
 ### Clientes
 - **Criar**: nome, e-mail (único), CPF (único) e CEP (opcional)
@@ -66,7 +65,7 @@ crud-clientes-pedidos/
 
 ---
 
-## 🚀 Instalação e Execução
+## Instalação e Execução
 
 ### 1. Clone o repositório
 
@@ -117,12 +116,12 @@ java -jar target/crud-clientes-pedidos-1.0-SNAPSHOT.jar
 
 ---
 
-## 🖥️ Exemplo de Uso
+## Exemplo de Uso
 
 ```
 ╔══════════════════════════════════════════╗
-║   Sistema de Clientes e Pedidos  v1.0   ║
-║   Java + Hibernate + MySQL + ViaCEP     ║
+║   Sistema de Clientes e Pedidos  v1.0    ║
+║   Java + Hibernate + MySQL + ViaCEP      ║
 ╚══════════════════════════════════════════╝
 
   Conectando ao banco de dados... OK ✔
@@ -144,7 +143,7 @@ java -jar target/crud-clientes-pedidos-1.0-SNAPSHOT.jar
 
   ✔ Endereço encontrado: Avenida Paulista, Bela Vista - São Paulo/SP
 
-  ✅ Cliente cadastrado com sucesso!
+      Cliente cadastrado com sucesso!
 ┌─ Cliente #1 ──────────────────────────────
 │  Nome    : João Silva
 │  E-mail  : joao@email.com
@@ -156,7 +155,7 @@ java -jar target/crud-clientes-pedidos-1.0-SNAPSHOT.jar
 
 ---
 
-## 📚 Dependências
+## Dependências
 
 | Dependência         | Versão   | Finalidade                      |
 |---------------------|----------|---------------------------------|
@@ -177,7 +176,7 @@ java -jar target/crud-clientes-pedidos-1.0-SNAPSHOT.jar
 
 ---
 
-## 🗂️ Versionamento Git
+## Versionamento Git
 
 ```bash
 git init
