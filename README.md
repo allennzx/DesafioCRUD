@@ -167,7 +167,7 @@ java -jar target/crud-clientes-pedidos-1.0-SNAPSHOT.jar
 
 ---
 
-## 🔗 API Externa — ViaCEP
+## API Externa — ViaCEP
 
 - **Endpoint**: `GET https://viacep.com.br/ws/{cep}/json/`
 - **Documentação**: https://viacep.com.br
