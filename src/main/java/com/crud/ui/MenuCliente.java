@@ -70,8 +70,7 @@ public class MenuCliente {
         }
     }
 
-    // ─── LISTAR ────────────────────────────────────────────────────────────────
-
+    
     private void listarTodos() {
         List<Cliente> clientes = clienteService.listarTodos();
         if (clientes.isEmpty()) {
@@ -92,7 +91,7 @@ public class MenuCliente {
         if (resultado.isPresent()) {
             System.out.println("\n" + resultado.get());
         } else {
-            System.out.println("  ❌ Cliente #" + id + " não encontrado.");
+            System.out.println("   Cliente #" + id + " não encontrado.");
         }
     }
 
@@ -163,7 +162,7 @@ public class MenuCliente {
         try {
             return Long.parseLong(scanner.nextLine().trim());
         } catch (NumberFormatException e) {
-            System.out.println("  ❌ ID inválido. Informe apenas números.");
+            System.out.println("   ID inválido. Informe apenas números.");
             return null;
         }
     }
