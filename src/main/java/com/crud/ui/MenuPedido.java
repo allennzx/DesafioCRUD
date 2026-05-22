@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Menu interativo para operações de CRUD de Pedidos.
- */
 public class MenuPedido {
 
     private final PedidoService pedidoService;
@@ -47,12 +44,11 @@ public class MenuPedido {
                 case 5 -> atualizar();
                 case 6 -> deletar();
                 case 0 -> continuar = false;
-                default -> System.out.println("  ❌ Opção inválida.");
+                default -> System.out.println("   Opção inválida.");
             }
         }
     }
 
-    // ─── CRIAR ─────────────────────────────────────────────────────────────────
 
     private void criar() {
         System.out.println("\n── Criar Novo Pedido ───────────────────────");
@@ -70,14 +66,13 @@ public class MenuPedido {
 
         try {
             Pedido pedido = pedidoService.criar(clienteId, descricao, valor);
-            System.out.println("\n  ✅ Pedido criado com sucesso!");
+            System.out.println("\n   Pedido criado com sucesso!");
             System.out.println(pedido);
         } catch (Exception e) {
-            System.out.println("\n  ❌ Erro: " + e.getMessage());
+            System.out.println("\n   Erro: " + e.getMessage());
         }
     }
 
-    // ─── LISTAR TODOS ──────────────────────────────────────────────────────────
 
     private void listarTodos() {
         List<Pedido> pedidos = pedidoService.listarTodos();
@@ -88,8 +83,6 @@ public class MenuPedido {
         System.out.println("\n── Todos os Pedidos (" + pedidos.size() + ") ───────────────────");
         pedidos.forEach(p -> System.out.println("\n" + p));
     }
-
-    // ─── LISTAR POR CLIENTE ────────────────────────────────────────────────────
 
     private void listarPorCliente() {
         System.out.print("\n  ID do cliente: ");
@@ -105,11 +98,10 @@ public class MenuPedido {
             System.out.println("\n── Pedidos do Cliente #" + clienteId + " (" + pedidos.size() + ") ────");
             pedidos.forEach(p -> System.out.println("\n" + p));
         } catch (Exception e) {
-            System.out.println("  ❌ Erro: " + e.getMessage());
+            System.out.println("   Erro: " + e.getMessage());
         }
     }
 
-    // ─── BUSCAR ────────────────────────────────────────────────────────────────
 
     private void buscarPorId() {
         System.out.print("\n  ID do pedido: ");
@@ -120,11 +112,10 @@ public class MenuPedido {
         if (resultado.isPresent()) {
             System.out.println("\n" + resultado.get());
         } else {
-            System.out.println("  ❌ Pedido #" + id + " não encontrado.");
+            System.out.println("   Pedido #" + id + " não encontrado.");
         }
     }
 
-    // ─── ATUALIZAR ─────────────────────────────────────────────────────────────
 
     private void atualizar() {
         System.out.print("\n  ID do pedido a atualizar: ");
@@ -143,7 +134,7 @@ public class MenuPedido {
             try {
                 valor = new BigDecimal(valorStr.replace(",", "."));
             } catch (NumberFormatException e) {
-                System.out.println("  ❌ Valor inválido.");
+                System.out.println("   Valor inválido.");
                 return;
             }
         }
@@ -167,14 +158,13 @@ public class MenuPedido {
                     valor,
                     status
             );
-            System.out.println("\n  ✅ Pedido atualizado!");
+            System.out.println("\n   Pedido atualizado!");
             System.out.println(atualizado);
         } catch (Exception e) {
-            System.out.println("\n  ❌ Erro: " + e.getMessage());
+            System.out.println("\n   Erro: " + e.getMessage());
         }
     }
 
-    // ─── DELETAR ───────────────────────────────────────────────────────────────
 
     private void deletar() {
         System.out.print("\n  ID do pedido a deletar: ");
@@ -189,13 +179,12 @@ public class MenuPedido {
 
         try {
             pedidoService.deletar(id);
-            System.out.println("  ✅ Pedido #" + id + " removido com sucesso.");
+            System.out.println("   Pedido #" + id + " removido com sucesso.");
         } catch (Exception e) {
-            System.out.println("  ❌ Erro: " + e.getMessage());
+            System.out.println("   Erro: " + e.getMessage());
         }
     }
 
-    // ─── Helpers ───────────────────────────────────────────────────────────────
 
     private int lerInteiro() {
         try {
@@ -209,7 +198,7 @@ public class MenuPedido {
         try {
             return Long.parseLong(scanner.nextLine().trim());
         } catch (NumberFormatException e) {
-            System.out.println("  ❌ ID inválido.");
+            System.out.println("   ID inválido.");
             return null;
         }
     }
@@ -218,7 +207,7 @@ public class MenuPedido {
         try {
             return new BigDecimal(scanner.nextLine().trim().replace(",", "."));
         } catch (NumberFormatException e) {
-            System.out.println("  ❌ Valor inválido. Use ponto ou vírgula como separador decimal.");
+            System.out.println("   Valor inválido. Use ponto ou vírgula como separador decimal.");
             return null;
         }
     }
