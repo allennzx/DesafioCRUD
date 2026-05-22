@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Menu interativo para operações de CRUD de Clientes.
- * Utiliza Scanner para leitura de dados do terminal.
- */
 public class MenuCliente {
 
     private final ClienteService clienteService;
@@ -21,7 +17,6 @@ public class MenuCliente {
         this.scanner        = scanner;
     }
 
-    /** Exibe o menu e processa as opções em loop. */
     public void exibir() {
         boolean continuar = true;
         while (continuar) {
@@ -45,12 +40,11 @@ public class MenuCliente {
                 case 4 -> atualizar();
                 case 5 -> deletar();
                 case 0 -> continuar = false;
-                default -> System.out.println("  ❌ Opção inválida.");
+                default -> System.out.println("  Opção inválida.");
             }
         }
     }
 
-    // ─── CADASTRAR ─────────────────────────────────────────────────────────────
 
     private void cadastrar() {
         System.out.println("\n── Cadastrar Novo Cliente ──────────────────");
@@ -69,10 +63,10 @@ public class MenuCliente {
 
         try {
             Cliente cliente = clienteService.cadastrar(nome, email, cpf, cep.isEmpty() ? null : cep);
-            System.out.println("\n  ✅ Cliente cadastrado com sucesso!");
+            System.out.println("\n   Cliente cadastrado com sucesso!");
             System.out.println(cliente);
         } catch (Exception e) {
-            System.out.println("\n  ❌ Erro: " + e.getMessage());
+            System.out.println("\n   Erro: " + e.getMessage());
         }
     }
 
@@ -88,7 +82,6 @@ public class MenuCliente {
         clientes.forEach(c -> System.out.println("\n" + c));
     }
 
-    // ─── BUSCAR ────────────────────────────────────────────────────────────────
 
     private void buscarPorId() {
         System.out.print("\n  ID do cliente: ");
@@ -103,7 +96,6 @@ public class MenuCliente {
         }
     }
 
-    // ─── ATUALIZAR ─────────────────────────────────────────────────────────────
 
     private void atualizar() {
         System.out.print("\n  ID do cliente a atualizar: ");
@@ -128,14 +120,13 @@ public class MenuCliente {
                     email.isEmpty() ? null : email,
                     cep.isEmpty()   ? null : cep
             );
-            System.out.println("\n  ✅ Cliente atualizado com sucesso!");
+            System.out.println("\n   Cliente atualizado com sucesso!");
             System.out.println(atualizado);
         } catch (Exception e) {
-            System.out.println("\n  ❌ Erro: " + e.getMessage());
+            System.out.println("\n   Erro: " + e.getMessage());
         }
     }
 
-    // ─── DELETAR ───────────────────────────────────────────────────────────────
 
     private void deletar() {
         System.out.print("\n  ID do cliente a deletar: ");
@@ -152,15 +143,13 @@ public class MenuCliente {
 
         try {
             clienteService.deletar(id);
-            System.out.println("  ✅ Cliente #" + id + " removido com sucesso.");
+            System.out.println("   Cliente #" + id + " removido com sucesso.");
         } catch (Exception e) {
-            System.out.println("  ❌ Erro: " + e.getMessage());
+            System.out.println("   Erro: " + e.getMessage());
         }
     }
 
-    // ─── Helpers de leitura segura ─────────────────────────────────────────────
 
-    /** Lê um inteiro do scanner com tratamento de erro. */
     private int lerInteiro() {
         try {
             int valor = Integer.parseInt(scanner.nextLine().trim());
@@ -170,7 +159,6 @@ public class MenuCliente {
         }
     }
 
-    /** Lê um Long do scanner com tratamento de erro. Retorna null se inválido. */
     private Long lerLong() {
         try {
             return Long.parseLong(scanner.nextLine().trim());
@@ -180,7 +168,6 @@ public class MenuCliente {
         }
     }
 
-    /** Lê uma linha de texto não vazia. */
     private String lerTexto() {
         return scanner.nextLine().trim();
     }
