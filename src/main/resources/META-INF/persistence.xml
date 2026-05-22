@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="crudPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entidades mapeadas -->
+        <class>com.crud.model.Cliente</class>
+        <class>com.crud.model.Pedido</class>
+
+        <properties>
+            <!-- Credenciais lidas via System.setProperty() no HibernateConfig -->
+            <property name="jakarta.persistence.jdbc.url"      value="${DB_URL}"/>
+            <property name="jakarta.persistence.jdbc.user"     value="${DB_USER}"/>
+            <property name="jakarta.persistence.jdbc.password" value="${DB_PASSWORD}"/>
+            <property name="jakarta.persistence.jdbc.driver"   value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect"              value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto"         value="update"/>
+            <property name="hibernate.show_sql"             value="false"/>
+            <property name="hibernate.format_sql"           value="false"/>
+            <property name="hibernate.connection.pool_size" value="5"/>
+        </properties>
+    </persistence-unit>
+</persistence>
