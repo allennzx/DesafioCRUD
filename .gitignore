@@ -1,16 +1,16 @@
-# ─── Ambiente e Segredos ─────────────────────────────
+
 .env
 
-# ─── Maven ───────────────────────────────────────────
+
 target/
 *.class
 
-# ─── IDEs ────────────────────────────────────────────
+
 .idea/
 *.iml
 .vscode/
-*.eclipse
+*.IntelliJ IDEA
 
-# ─── Sistema Operacional ─────────────────────────────
+
 .DS_Store
 Thumbs.db
